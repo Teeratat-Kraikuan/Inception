@@ -13,12 +13,6 @@ start:
 	@docker compose -f ./srcs/docker-compose.yml start
 
 clean: down
-	@if [ -z $$(docker ps -qa) ]; then \
-		echo "No container found."; \
-	else \
-		docker stop $$(docker ps -q); \
-		docker rm $$(docker ps -qa); \
-	fi
 	@if [ -z $$(docker image ls -qa) ]; then \
 		echo "No images found."; \
 	else \
@@ -34,6 +28,6 @@ fclean: clean
 	docker system prune -af
 	docker volume prune -f
 
-re: clean up
+re: fclean up
 
-.PHONY: all up down stop start clean re
+.PHONY: all up down stop start clean fclean re
