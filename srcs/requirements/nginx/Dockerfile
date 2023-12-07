@@ -13,4 +13,4 @@ COPY ./conf/tkraikua.42.fr.conf /etc/nginx/sites-enabled/tkraikua.42.fr
 
 EXPOSE 443
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD [ "nginx", "-g", "daemon off" ]
